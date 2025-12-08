@@ -1,0 +1,34 @@
+# vhosts.conf
+
+# HTTPS configuration
+#
+# This file configures some HTTP re-directs, and the remaining
+# configuration will be in ssl.conf.
+NameVirtualHost *:80
+# Re-direct HTTP to HTTPS
+<VirtualHost *:80>
+    ServerName app.example.com
+    Redirect permanent / https://app.example.com/
+</VirtualHost>
+# Re-direct HTTP with "www"-prefix to HTTPS (without prefix)
+<VirtualHost *:80>
+    ServerName www.app.example.com
+    Redirect permanent / https://app.example.com/
+</VirtualHost>
+
+# OR delete the part above, and use the part below...
+
+# HTTP configuration
+#
+# This is a more conventional HTTP-only configuration
+<VirtualHost *:80>
+    ServerAdmin paulh@logicsquad.net
+    DocumentRoot /var/www/html/app.example.com
+    ServerName app.example.com
+    ErrorLog /var/log/httpd/app.example.com-error_log
+    CustomLog /var/log/httpd/app.example.com-access_log common
+    RewriteEngine On
+    RewriteRule ^/$ /Apps/WebObjects/Foo.woa/ [PT]
+    RewriteRule ^/foo(.*)$ /Apps/WebObjects/Foo.woa$1 [PT,L]
+    Redirect /index.html http://app.example.com/Apps/WebObjects/Foo.woa
+</VirtualHost>

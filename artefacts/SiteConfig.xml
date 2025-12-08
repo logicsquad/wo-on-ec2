@@ -1,0 +1,12 @@
+<SiteConfig type="NSDictionary">
+	<hostArray type="NSArray">
+	</hostArray>
+	<applicationArray type="NSArray">
+	</applicationArray>
+	<instanceArray type="NSArray">
+	</instanceArray>
+	<site type="NSDictionary">
+		<viewRefreshEnabled type="NSString">YES</viewRefreshEnabled>
+		<viewRefreshRate type="NSNumber">60</viewRefreshRate>
+	</site>
+</SiteConfig>
