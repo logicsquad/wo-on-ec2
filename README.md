@@ -13,16 +13,26 @@ Getting started
 1. Launch an EC2 instance running Amazon Linux 2023 64-bit on x86.
 2. Clone this repository.
 3. Run `make-appserver.sh` supplying the local path to your PEM key
-   and the hostname of the instance: `make-appserver.sh -i ~/some.pem
-   -h ec2-3-45-6-78.ap-southeast-2.compute.amazonaws.com`.
+   and the hostname of the instance:
+       ```
+       $ make-appserver.sh -i ~/some.pem -h ec2-3-45-6-78.ap-southeast-2.compute.amazonaws.com
+       ```
 4. The `appserver-setup.sh` script and the contents of `artefacts`
    will be uploaded to the instance, and `appserver-setup.sh` will
    run.
 5. On completion, wotaskd and JavaMonitor will be running, and you can
-   log in to confirm this: `ssh -i ~/some.pem -L 56789:localhost:56789
-   ec2-user@ec2-3-45-6-78.ap-southeast-2.compute.amazonaws.com`. Open
-   a browser and navigate to `http://localhost:56789/`.
-6. You will still need to set up Apache: see the `ssl.conf.proto` and
+   log in to confirm this:
+       ```
+       $ ssh -i ~/some.pem -L 56789:localhost:56789 ec2-user@ec2-3-45-6-78.ap-southeast-2.compute.amazonaws.com
+       ```
+   The `-L` option creates a tunnel from port 56789 on your local machine
+   to _the EC2 instance's_ `localhost`—that is, _itself_.
+   
+6. Open a browser _on your local machine_ and navigate to
+   `http://localhost:56789/`. (This tunnels from port 56789 on your
+   local machine, via SSH to port 56789 on the EC2 instance, where
+   JavaMonitor will be listening.)
+7. You will still need to set up Apache: see the `ssl.conf.proto` and
    `vhosts.conf.proto` files for further information: make appropriate
    changes and restart Apache with `systemctl restart httpd.service`.
 
