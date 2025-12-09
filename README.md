@@ -53,7 +53,6 @@ appserver with Apache. You still need to:
 
 Questions
 ---------
-
 * _Why is there a binary `mod_WebObjects.so` in `artefacts`?_ Because
   you either need to compile it on the fly during installation, which
   would add a lot of steps and potential for breakage, or you download
@@ -63,8 +62,8 @@ Questions
 
 Contributing
 ------------
-By all means, open issue tickets and pull requests if you have something
-to contribute.
+By all means, open issue tickets and pull requests if you have
+something to contribute.
 
 Credit
 ------
