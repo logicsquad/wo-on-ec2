@@ -15,9 +15,7 @@ Getting started
 3. Run `make-appserver.sh` supplying the local path to your PEM key
    and the hostname of the instance:
 
-        ```
         $ make-appserver.sh -i ~/some.pem -h ec2-3-45-6-78.ap-southeast-2.compute.amazonaws.com
-        ```
 
 4. The `appserver-setup.sh` script and the contents of `artefacts`
    will be uploaded to the instance, and `appserver-setup.sh` will
@@ -25,9 +23,7 @@ Getting started
 5. On completion, wotaskd and JavaMonitor will be running, and you can
    log in to confirm this:
 
-        ```
         $ ssh -i ~/some.pem -L 56789:localhost:56789 ec2-user@ec2-3-45-6-78.ap-southeast-2.compute.amazonaws.com
-        ```
 
    The `-L` option creates a tunnel from port 56789 on your local machine
    to _the EC2 instance's_ `localhost`—that is, _itself_.
