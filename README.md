@@ -58,7 +58,8 @@ Questions
   would add a lot of steps and potential for breakage, or you download
   it from somewhere, in which case it may as well be in this
   repo. This binary was compiled on Amazon Linux (64-bit x86) in 2022,
-  and _includes_ a security fix made in August 2022.
+  and _includes_ [a security fix made in August
+  2022](https://github.com/wocommunity/wonder/pull/992).
 
 Contributing
 ------------
