@@ -36,6 +36,21 @@ Getting started
    `vhosts.conf.proto` files for further information: make appropriate
    changes and restart Apache with `systemctl restart httpd.service`.
 
+Remaining steps
+---------------
+At the end of the section above, all you have is a WebObjects
+appserver with Apache. You still need to:
+
+* Set up the database layer. Adding PostgreSQL to the same instance is
+  fairly straightforward, and then you'll have a hybrid application-,
+  web- and database-server all in one. Similarly, connecting to RDS
+  only requires a few additional steps.
+* Create a mechanism to install your applications in
+  `/opt/WOApplications/`. This is highly dependent on your continuous
+  integration or other build process. For example, you might fetch the
+  application and webserver-resources bundle from a Maven repository,
+  and unpack those into the appropriate places.
+
 Questions
 ---------
 
